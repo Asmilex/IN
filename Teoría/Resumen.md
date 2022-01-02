@@ -445,7 +445,7 @@ Matriz de confusión:
     - **Selección hacia atrás**: empiezas con el total, y te lías a quitar atributos.
       - Funciona mejor cuando el óptimo tiene muchas variables
       - Tienes que reevaluar la utilidad de algunos atributos previamente descartados
-    - **Selección l-más r-menos**: generalización de forward y backward (Palante patrás)
+    - **Selección l-más r-menos**: generalización de forward y backward (Palante patrás)
     - **Selección bidireccional**: implementación paralela de foward y backward. Hay que asegurar que los atributos eliminados por uno no son metidos por el otro.
     - **Selección flotante**: extensión de l-más y r-menos que evita fijar l, r a priori. Hay dos métodos: uno comienza por el vacío, y otro por el total.
   - Tipos de algoritmos:
@@ -506,7 +506,7 @@ Matriz de confusión:
     - **Locales vs globales**: centrados en una subregión o considerando todo el espacio
     - **Top down vs bottom up**: empiezan con una lista vacía o llena de puntos de corte
     - **Directos vs incrementales**: usan o no un proceso de optimización posterior
-  - Y cuál de todas las formas es mejor?
+  - ¿Y cuál de todas las formas es mejor?
     - [a](https://twitter.com/misterjagger_/status/1397647916722962437)
     - Puedes evaluarlo teniendo en cuenta el número de intervalos, número de inconsistencias causadas, tasa de acierto predictivo, tamaño del modelo generado...
 
@@ -542,7 +542,7 @@ Fija un radio (*bandwidth*) y va desplazando centroides a regiones más densas. 
 ### DBSCAN
 
 * Acepta como parámetros un radio `eps` y el tamaño mínimo `minPts`.
-* A partir de un punto busca otros puntos que pillen dentro del radio y si hay más de `minPts` lo añade al cluster, así hasta que no se alcancen más puntos. Los puntos que no entran en ningún cluster los etiqueta como ruido.
+* A partir de un punto busca otros puntos que pillen dentro del radio. Si hay menos de `minPts` actualmente, lo añade al cluster. Así, hasta que no se alcanzan más puntos. Los puntos que no entran en ningún cluster los etiqueta como ruido.
 * `eps` se puede estimar con k-distancia.
 * Puede encontrar cluster con distintas formas y es robusto a outliers.
 * En las prácticas no vale pa na.
