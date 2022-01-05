@@ -48,6 +48,25 @@ Primero, normalizaría los atributos continuos. En principio, la primera idea qu
 
 Tras esto, toca estudiar el atributo discreto. ¿Qué ocurre si lo eliminamos? ¿Mejora la clasificación? Si no es así, ¿cómo podemos tratarlo en la clasificación? Primero, cambiaría los parámetros del clasificador, como la distancia usada. Además, una de las ideas que trataría de aplicar sería usar alguna medida de distancia robusta a datos mixtos, como la Gower.
 
+## 1 de septiembre de 2014
+
+### 1. [(Hecha)](#1-aunque-por-abuso-del-lenguaje-hablamos-de-kdd-y-de-minería-de-datos-como-sinónimos-indica-las-diferencias-entre-los-términos-identifica-y-describe-brevemente-las-etapas-de-kdd)
+
+### 2. Explica brevamente los modelos básicos del multiclasificador: bagging y boosting. Aspectos a destacar de cada uno de ellos. Sus diferencias como multiclasificadores.
+
+[(Esta página está muy bien. La miraría antes que mi respuesta)](https://quantdare.com/what-is-the-difference-between-bagging-and-boosting/)
+
+Bagging y boosting son dos técnicas de ensemble learning. En ambos métodos, se utiliza un cierto número de clasificadores entrenados de manera específica, con el objetivo de crear un clasificador más robusto.
+
+Consideremos para ambos N clasificadores. En bagging, se generan diferentes sets de entrenamiento generados con muestreo aleatorio con reemplazamiento, mientras que en boosting se generan también unos sets de entrenamiento con muestreo aleatorio con reemplazamiento sobre datos con pesos.
+
+El motivo de esta diferencia es que, en bagging, se entrenan en paralelo estos N modelos, y en boosting, se entrenan N modelos en secuencia, retroalimentando la información de un entrenamiento en otro. Los pesos se usan para centrar más la atención en aquellos datos que han sido mal clasificados.
+
+(Si te ha tocado esta pregunta en el examen: hazle un dibujico anda que les gusta mucho.)
+
+Finalmente, a la hora de producir un modelo final, en bagging se utiliza un voto por consenso o por promedio, mientras que en boosting se utiliza un voto ponderado, asignándole mayor importancia a aquellos clasificadores en los que se tiene mejor rendimiento sobre unos ciertos ejemplos.
+
+Ambos métodos aumentan la robustez y producen estabilidad en el resultado final, pero solo boosting reduce el sesgo. La naturaleza del bagging puede hacer que tengamos casos de overfitting.
 
 ## 17 de enero de 2020
 
