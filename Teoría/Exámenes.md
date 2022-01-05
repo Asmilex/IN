@@ -1,5 +1,53 @@
 # Exámenes Inteligencia de Negocio
 
+## 27 de enero de 2014
+
+1. **Preguntas:**
+   1. **Aunque por abuso del lenguaje hablamos de KDD y de minería de datos como sinónimos, indica las diferencias entre los términos.**
+   2. **Identifica y describe brevemente las etapas de KDD.**
+
+Knowledge discovery in databases es el preoceso mediante el cual se identifican patrones válidos, novedosos, potencialmente útiles y principalmente entendibles en una base de datos. La minería de datos es una parte de este proceso.
+
+Las etapas que incluye son:
+1. Selección de datos: determinar la fuente de información.
+2. Almacenamiento de datos: se diseña un esquema para unificar de forma operativa la fase 1.
+3. Limpieza de los datos: mejora la calidad de éstos y los resultados de la minería
+4. Preprocesamiento: selección, limpieza y transformación de los datos a usar.
+5. Data mining: uso de algoritmos para extraer conocimiento y/o patrones como parte del proceso del KDD. Es la parte más importante.
+6. Integración y evaluación: verificar cómo de buenos son los modelos que hemos conseguido.
+7. Difusión: divulgar sobre lo que hemos aprendido. Hacer gráficos y esas cosas.
+
+2. **Enumera y describe dos problemas abordados en minería de datos. Pon un ejemplo de aplicación real y menciona un algoritmo clásico para ellos.**
+
+Hoy en día el uso de minería de datos está muy extendido. Por mencionar algunos ejemplos, se encuentra el análisis de datos producidos por experimentos científicos (medicina, biología, etc...), procesamiento de datos de redes sociales...
+
+Por ejemplo, se puede el algoritmo K-Means para estudiar cómo se agrupan los usuarios de una red social. Estudiando las relaciones entre personas y sus intereses, se puede saber cómo actúa un grupo de personas no conocido a priori.
+
+3. **¿Por qué es interesante realizar selección de atributos antes de construir un clasificador? Enumera brevemente dos justificaciones.**
+
+A la hora de construir modelos, más atributos no siempre es mejor. Muchas veces, una mayor cantidad de atributos supone un mayor tiempo de entrenamiento del modelo. Además, podría suponer overfitting.
+
+Una de las partes más importantes de la ciencia de datos es tener datos de calidad. Aplicando técnicas como Análisis de Componentes Principales o Análisis Factorial, se podrían extraer variables ocultas o latentes con el fin de construir un modelo más robusto. Otro aspecto importante sería eliminar aquellos atributos que tenga un número excesivamente alto de ruido u outliers, ya que podrían estar sesgando nuestra información.
+
+4. **Describir el significado de las medidas de soporte y confianza en reglas de asociación.**
+
+Dada una regla `X => Y`, se define el soporte como la probabilidad de que X e Y se encuentren en una transacción; y la confianza es la probabilidad de que Y se encuentre en una transacción habiéndose dado X (la probabilidad condicionada).
+
+En otras palabras, el soporte es la evidencia de cómo de frecuente es un item en nuestros datos, mientras que la confianza es el porcentaje de veces que nuestro condicional se evalúa como cierto.
+
+5. **Suponed un conjunto de datos de clasificación que tiene 4 atributos de entrada, 500 ejemplos y 3 clases. Tres de los atributos de entrada son numéricos en [1.0, 5.0], y el cuarto es categórico con 4 valores diferentes. ¿Qué técnicas de preprocesamiento aplicarías para emplear técnicas de vecino más cercano?**
+
+Sabemos que las técnicas de vecino más cercano no se llevan bien con atributos discretos. Al utilizar distancias, es recomendable que los atributos sean continuos.
+
+Supondré que la parte de limpieza ya ha sido realizada, y nos encontramos ante atributos de calidad (es decir, NaNs tratados, posibles outliers eliminados, ruido minimizado...). Antes de aplicar preprocesamiento, es necesario que pasemos el atributo categórico a una variable numérica. En este punto, tomaría una métrica de evaluación del clasificador.
+
+Una vez comprobado su rendimiento, procederíamos al preprocesamiento.
+
+Primero, normalizaría los atributos continuos. En principio, la primera idea que se me ocurre es utilizar la Z-Score, puesto que respeta la media y desviación típica. Una vez hecho esto, evaluaría el modelo de nuevo, tomando nota de los cambios en el resultado.
+
+Tras esto, toca estudiar el atributo discreto. ¿Qué ocurre si lo eliminamos? ¿Mejora la clasificación? Si no es así, ¿cómo podemos tratarlo en la clasificación? Primero, cambiaría los parámetros del clasificador, como la distancia usada. Además, una de las ideas que trataría de aplicar sería usar alguna medida de distancia robusta a datos mixtos, como la Gower.
+
+
 ## 17 de enero de 2020
 
 **1. ¿Por qué (y en qué situaciones) es interesante aplicar un preprocesamiento basado en filtros o un preprocesamiento basado en ensemble? Explicar brevemente ambos, pros y contras.**
