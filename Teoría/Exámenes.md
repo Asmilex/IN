@@ -68,6 +68,67 @@ Finalmente, a la hora de producir un modelo final, en bagging se utiliza un voto
 
 Ambos métodos aumentan la robustez y producen estabilidad en el resultado final, pero solo boosting reduce el sesgo. La naturaleza del bagging puede hacer que tengamos casos de overfitting.
 
+### 3. ¿Por qué (y en qué situaciones) es interesante realizar selección de variables antes de construir un clasificador? De la misma manera, ¿por qué es interesante la selección de instancias?
+
+Hay muchos motivos por los que es importante hacer una **selección de variables**. Algunos motivos son los siguientes:
+
+- Ciertas variables podrían no aportar nada al modelo. Añadirlas haría que el tiempo de entrenamiento aumentara, aún sin producir una mejora en el rendimiento. Es más, podría incluso empeorarlo, debido a overfiting o problemas similares.
+- El principio de parsimonia nos dice que es preferible tener modelos simples con pocas variables a modelos complejos con muchas variables. Los modelos simples, en general, son más fáciles de generalizar.
+
+Existen diferentes técnicas que nos permiten seleccionar las características más útiles. Dos de los métodos más asentados con los que se puede medir el rendimiento de un conjunto de atributos son los filters y los wrappers.
+
+La **selección de instancias** pretende elegir los ejemplos que sean más relevantes para una aplicación y lograr el máximo rendimiento.
+
+- Al haber menos datos, los algoritmos pueden aprender más rápidamente.
+- Dado que se busca mayor exactitud, el clasificador generaliza mejor.
+- Puesto que los modelos generados son más simples, nos resultan más fáciles de entender.
+
+Además, al hacer selección de instancias, podemos decidir centrarnos en algunas zonas del espacio que nos sean especialmente problemáticas. Por ejemplo, podríamos hacer resampling para equilibrar las clases, o SMOTE a una de las clases minoritarias.
+
+En cualquier caso, ambos métodos buscan que el modelo sea más robusto y preciso.
+
+### 4. En las siguientes situaciones, determinar si estamos ante un problema de minería de datos y qué tipo de técnicas se podrían aplicar.
+
+1. **Dividir los clientes de una compañía de acuerdo a su género**.
+
+No es datamining. Es una consulta a una base de datos.
+
+2. **Dividir los clientes de una compañía de acuerdo a su fiabilidad.**
+
+Esto sí es datamining. La *fiabilidad* es una métrica difícil de determinar. Habría que estudiar qué variables se conocen de los clientes, estudiar sus datos, y generar un modelo que permita conocer la fiabilidad de cada uno.
+
+En principio, se podría aplicar clustering para conseguirlo, puesto que no se conocen las clases a priori.
+
+3. **Calculas las ventas totales de una compañía**.
+
+A no ser que haya registros raros, o sea una aplicación muy particular, esto es hacer un recuento en una base de datos.
+
+4. **Predecir el precio futuro del almacén de una compañía en base a registros históricos**.
+
+Es un problema típico de datamining. Los motivos son similares a los de (2).
+
+Se podría aplicar un modelo de regresión lineal o redes neuronales.
+
+5. **Monitorizar el latido del corazón de un paciente para detercar situaciones anormales**.
+
+(Lo hemos estudiado en prácticas. Dar los motivos).
+
+6. **Extraer frecuencias de una señal de sonido**.
+
+En general, esto no es ciencia de datos. El procesamiento digital de señales es un área aparte de la minería de datos. Sin embargo, si hubiera problemas de ruido en el conjunto de datos original, sería interesante aplicar algunas de las técnicas que conocemos. Por ejemplo, se podría aplicar un imputador para sanear los problemas de ruido de la muestra.
+
+### Suponed un conjunto de datos de clasificación que tiene 4 atributos de entrada, 500 ejemplos y 2 clases. El 15% de los ejemplos están en la segunda clase, y el 85 en la primera. ¿Qué preprocesamiento se puede aplicar a los datos para emplear las técnicas árboles de decisión?
+
+Claramente nos encontramos ante un problema de desbalanceo de clases.
+
+Para solventarlo, podemos aplicar, entre otras técnicas, undersampling o SMOTE.
+
+- Undersampling nos permitiría reducir el número de ejemplos de la clase mayor, equilibrándola así y aumentando la exactitud del modelo. Sin embargo, podría no producir un buen comportamiento.
+- SMOTE produciría ejemplos artificales de la clase minoritaria con el fin de aumentar la información que tenemos de ésta. Sin embargo, puede dar lugar a impreciones, por lo que deberíamos limpiar el conjunto resultante con alguna técnica. Por ejemplo, tomek links o ENN.
+- Otra técnica que podría resultar efectiva es utilizar una matriz de costes, siempre que el algoritmo en particular lo permita.
+
+Es importante mencionar también que los árboles no se suelen llevar muy bien con atributos continuos. Sería interesante aplicar binning. Esto nos permitiría también reducir el efecto de los outliers.
+
 ## 17 de enero de 2020
 
 ### 1. ¿Por qué (y en qué situaciones) es interesante aplicar un preprocesamiento basado en filtros o un preprocesamiento basado en ensemble? Explicar brevemente ambos, pros y contras.**
