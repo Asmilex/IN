@@ -107,7 +107,7 @@ A no ser que haya registros raros, o sea una aplicación muy particular, esto es
 
 Es un problema típico de datamining. Los motivos son similares a los de (2).
 
-Se podría aplicar un modelo de regresión lineal o redes neuronales.
+Se podría aplicar un modelo de regresión lineal, redes neuronales o series temporales.
 
 5. **Monitorizar el latido del corazón de un paciente para detercar situaciones anormales**.
 
@@ -117,7 +117,7 @@ Se podría aplicar un modelo de regresión lineal o redes neuronales.
 
 En general, esto no es ciencia de datos. El procesamiento digital de señales es un área aparte de la minería de datos. Sin embargo, si hubiera problemas de ruido en el conjunto de datos original, sería interesante aplicar algunas de las técnicas que conocemos. Por ejemplo, se podría aplicar un imputador para sanear los problemas de ruido de la muestra.
 
-### Suponed un conjunto de datos de clasificación que tiene 4 atributos de entrada, 500 ejemplos y 2 clases. El 15% de los ejemplos están en la segunda clase, y el 85 en la primera. ¿Qué preprocesamiento se puede aplicar a los datos para emplear las técnicas árboles de decisión?
+### 5. Suponed un conjunto de datos de clasificación que tiene 4 atributos de entrada, 500 ejemplos y 2 clases. El 15% de los ejemplos están en la segunda clase, y el 85 en la primera. ¿Qué preprocesamiento se puede aplicar a los datos para emplear las técnicas árboles de decisión?
 
 Claramente nos encontramos ante un problema de desbalanceo de clases.
 
